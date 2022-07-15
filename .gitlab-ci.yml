@@ -4,6 +4,6 @@ stages:
 
 rust-stable:
   stage: build
-  image: rust:stable
+  image: rust:latest
   script:
     - cargo build --verbose
