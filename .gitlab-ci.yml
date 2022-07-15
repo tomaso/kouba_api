@@ -1,0 +1,9 @@
+---
+stages:
+  - build
+
+rust-stable:
+  stage: build
+  image: rust:stable
+  script:
+    - cargo build --verbose
