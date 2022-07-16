@@ -13,7 +13,7 @@ rust-stable-rpi:
   image: rust:latest
   script:
     - apt update
-    - apt install -y gcc-arm-linux-gnueabihf
+    - apt install -y gcc-arm-linux-gnueabihf docker.io
     - rustup target add armv7-unknown-linux-gnueabihf
     - cargo build --target armv7-unknown-linux-gnueabihf --release
     - docker build -t kouba_api:latest .
