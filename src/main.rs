@@ -2,7 +2,7 @@
 
 #[get("/")]
 fn index() -> &'static str {
-    "TODO: List of available methods."
+    "TODO: List of available methods..."
 }
 
 #[launch]
