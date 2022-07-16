@@ -6,4 +6,10 @@ rust-stable:
   stage: build
   image: rust:latest
   script:
-    - cargo build --verbose
+    - cargo build
+
+rust-stable-rpi:
+  stage: build
+  image: rust:latest
+  script:
+    - cargo build --target armv7-unknown-linux-gnueabihf --release
