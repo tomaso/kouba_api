@@ -2,14 +2,15 @@
 stages:
   - build
 
-rust-stable:
-  stage: build
-  image: rust:latest
-  script:
-    - cargo build
+#rust-stable:
+#  stage: build
+#  image: rust:latest
+#  script:
+#    - cargo build
 
 rust-stable-rpi:
   stage: build
   image: rust:latest
   script:
+    - rustup target add armv7-unknown-linux-gnueabihf
     - cargo build --target armv7-unknown-linux-gnueabihf --release
