@@ -1,0 +1,5 @@
+FROM alpine:latest
+
+RUN echo -en "#!/bin/sh\necho Hello world\n" >/bin/kouba_api
+RUN chmod +x /bin/kouba_api
+ENTRYPOINT "/bin/kouba_api"
