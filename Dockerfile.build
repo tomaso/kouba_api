@@ -1,5 +1,8 @@
-FROM alpine:latest
+FROM rust:latest
 
-RUN echo -en "#!/bin/sh\necho Hello world\n" >/bin/kouba_api
-RUN chmod +x /bin/kouba_api
-ENTRYPOINT "/bin/kouba_api"
+RUN apt update
+RUN apt install -y gcc-arm-linux-gnueabihf
+RUN rustup target add armv7-unknown-linux-gnueabihf
+RUN cargo fetch
+
+CMD "bash"
