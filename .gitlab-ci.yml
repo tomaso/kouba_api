@@ -19,7 +19,7 @@ stages:
 #    - docker build -t kouba_api:latest .
 #    - docker push kouba_api:latest
 
-build-image-for-building:
+rust-stable-api:
   stage: build
   image:
     name: gcr.io/kaniko-project/executor:debug
