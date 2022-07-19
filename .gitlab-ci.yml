@@ -37,6 +37,7 @@ rust-stable-api:
        echo "${KANIKOCFG}" > /kaniko/.docker/config.json
     - >-
       /kaniko/executor
+      --cache=false
       --context "${CI_PROJECT_DIR}"
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
       "${KANIKOPROXYBUILDARGS}"
