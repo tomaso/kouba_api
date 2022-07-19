@@ -36,7 +36,8 @@ rust-stable-api:
        KANIKOCFG="{ ${KANIKOCFG} }"
        echo "${KANIKOCFG}" > /kaniko/.docker/config.json
     - >-
-      /kaniko/executor
+      GOARM=7 /kaniko/executor
+      --customPlatform=linux/arm
       --cache=false
       --context "${CI_PROJECT_DIR}"
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
@@ -63,7 +64,8 @@ build-image-for-building:
        KANIKOCFG="{ ${KANIKOCFG} }"
        echo "${KANIKOCFG}" > /kaniko/.docker/config.json
     - >-
-      /kaniko/executor
+      GOARM=7 /kaniko/executor
+      --customPlatform=linux/arm
       --context "${CI_PROJECT_DIR}"
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile.build"
       "${KANIKOPROXYBUILDARGS}"
