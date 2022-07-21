@@ -26,6 +26,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           file: Dockerfile.armv7
-          tags: ghcr.io/tomaso/kouba_api:latest
+          tags: ghcr.io/tomaso/kouba_api:latest-armv7
           push: true
           platforms: linux/arm/v7
