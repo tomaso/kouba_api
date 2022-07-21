@@ -1,4 +1,4 @@
-FROM --platform=linux/arm/v7 rust:latest
+FROM rust:latest
 
 COPY Cargo.toml /Cargo.toml
 COPY src/main.rs /src/main.rs
