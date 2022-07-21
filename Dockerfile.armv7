@@ -3,5 +3,5 @@ RUN cargo build --target armv7-unknown-linux-gnueabihf --release
 
 
 FROM --platform=linux/arm/v7 arm32v7/alpine:latest
-RUN cp --from=builder /target/armv7-unknown-linux-gnueabihf/release/kouba_api /bin/kouba_api
+COPY --from=builder /target/armv7-unknown-linux-gnueabihf/release/kouba_api /bin/kouba_api
 ENTRYPOINT "/bin/kouba_api"
