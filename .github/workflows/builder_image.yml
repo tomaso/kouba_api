@@ -19,10 +19,17 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      -
-        name: Build and push
+#      -
+#        name: Build and push
+#        uses: docker/build-push-action@v3
+#        with:
+#          file: Dockerfile.build
+#          tags: ghcr.io/tomaso/kouba_api:builder
+#          push: true
+      - 
+        name: Build and push for alpine
         uses: docker/build-push-action@v3
         with:
-          file: Dockerfile.build
-          tags: ghcr.io/tomaso/kouba_api:builder
+          file: Dockerfile.build.alpine
+          tags: ghcr.io/tomaso/kouba_api:builder-alpine
           push: true

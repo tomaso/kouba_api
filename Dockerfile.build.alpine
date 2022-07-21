@@ -1,0 +1,11 @@
+FROM rust:alpine
+
+COPY Cargo.toml /Cargo.toml
+COPY src/main.rs /src/main.rs
+COPY .cargo /.cargo
+
+RUN apk update && apk add --no-cache libpq musl-dev pkgconfig openssl-dev gcc
+RUN cargo build --release
+RUN rm -f /target/release/kouba_api
+
+CMD "bash"

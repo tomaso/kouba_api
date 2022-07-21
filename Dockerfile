@@ -1,6 +1,7 @@
-FROM 9d0a9724cf4347720e85c6d63f7c269333b27e9766c2181324f0213fdbc3d76b
-
+FROM ghcr.io/tomaso/kouba_api:builder
 RUN cargo build --release
-RUN cp /target/*/release/kouba_api /bin/kouba_api
-RUN rm -rf /target
+
+
+FROM alpine:latest
+COPY --from=0 /target/release/kouba_api /bin/kouba_api
 ENTRYPOINT "/bin/kouba_api"
