@@ -1,6 +1,7 @@
-FROM --platform=linux/arm/v7 registry.gitlab.com/tomaso_gitlab/kouba_api:builder
-
+FROM ghcr.io/tomaso/kouba_api:builder-for-armv7 as builder
 RUN cargo build --target armv7-unknown-linux-gnueabihf --release
-RUN cp /target/armv7-unknown-linux-gnueabihf/release/kouba_api /bin/kouba_api
-RUN rm -rf /target
+
+
+FROM --platform=linux/arm/v7 arm32v7/alpine:latest
+RUN cp --from=builder /target/armv7-unknown-linux-gnueabihf/release/kouba_api /bin/kouba_api
 ENTRYPOINT "/bin/kouba_api"
