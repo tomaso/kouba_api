@@ -1,9 +1,5 @@
 FROM rust:latest
 
-COPY Cargo.toml /Cargo.toml
-COPY src/main.rs /src/main.rs
-COPY .cargo /.cargo
-
 RUN apt update
 RUN apt install -y gcc-arm-linux-gnueabihf
 RUN rustup target add armv7-unknown-linux-gnueabihf
